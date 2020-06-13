@@ -1,7 +1,3 @@
-/**
- * bud generate plugin
- */
-
 // prettier-ignore
 module.exports = {
   name: 'plugin',
