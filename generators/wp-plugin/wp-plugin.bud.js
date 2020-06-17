@@ -1,6 +1,5 @@
-// prettier-ignore
 module.exports = {
-  name: 'plugin',
+  name: 'wp-plugin',
   description: 'Generate a new plugin',
   tasks: [
     {
@@ -38,53 +37,13 @@ module.exports = {
     },
     {
       task: 'compile',
-      src: 'babel.config.js',
-      dest: 'babel.config.js',
-      parser: 'babel',
-    },
-    {
-      task: 'compile',
       src: '.editorconfig',
       dest: '.editorconfig',
     },
     {
       task: 'compile',
-      src: '.eslintrc.js',
-      dest: '.eslintrc.js',
-      parser: 'babel',
-    },
-    {
-      task: 'compile',
-      src: '.eslintignore',
-      dest: '.eslintignore',
-    },
-    {
-      task: 'compile',
       src: '.gitignore',
       dest: '.gitignore',
-    },
-    {
-      task: 'compile',
-      src: 'postcss.config.js',
-      dest: 'postcss.config.js',
-      parser: 'babel',
-    },
-    {
-      task: 'compile',
-      src: 'prettier.config.js',
-      dest: 'prettier.config.js',
-      parser: 'babel',
-    },
-    {
-      task: 'compile',
-      src: '.prettierignore',
-      dest: '.prettierignore',
-    },
-    {
-      task: 'compile',
-      src: 'stylelint.config.js',
-      dest: 'stylelint.config.js',
-      parser: 'babel',
     },
     {
       task: 'compile',
@@ -108,11 +67,6 @@ module.exports = {
     },
     {
       task: 'compile',
-      src: 'bud/lib/bootstrap.php.hbs',
-      dest: 'bud/lib/bootstrap.php',
-    },
-    {
-      task: 'compile',
       src: 'app/Plugin/Activate.php.hbs',
       dest: 'app/Plugin/Activate.php',
     },
@@ -132,16 +86,8 @@ module.exports = {
       dest: 'app/Asset/Registration.php',
     },
     {
-      task: 'addDependencies',
+      task: 'install',
       repo: 'packagist',
-      dev: false,
-      pkgs: ['roots/bud-support'],
-    },
-    {
-      task: 'addDependencies',
-      repo: 'npm',
-      dev: true,
-      pkgs: ['@roots/bud-support'],
     },
   ],
 }

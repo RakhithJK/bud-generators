@@ -14,14 +14,26 @@
     "wordpress",
     "wordpress-block"
   ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:roots/bud-support"
+    }
+  ],
   "autoload": {
     "psr-4": {
-      "{{pascalcase namespace}}\\": ["app/"]
+      "{{pascalcase namespace}}\\": ["app/"],
     }
   },
   "require": {
-    "php": "^7.2"
+    "php": "^7.2",
+    "roots/bud-support": "dev-master"
   },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "scripts": {
     "lint": [
       "phpcs --ignore=vendor,dist --extensions=php --standard=PSR12 ."

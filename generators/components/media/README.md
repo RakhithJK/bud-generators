@@ -1,1 +1,7 @@
-# Panel: Color Overlay
+# Component: Image
+
+## Usage
+
+```js
+
+```

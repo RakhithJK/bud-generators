@@ -1,6 +1,6 @@
 {
   "name": "@roots/bud-generators",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/roots/bud-generators.git"
@@ -9,7 +9,6 @@
     "node": ">=12"
   },
   "keywords": [
-    "@roots/bud",
     "bud-core-generators"
   ],
   "files": [
