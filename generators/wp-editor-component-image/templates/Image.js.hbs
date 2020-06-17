@@ -1,10 +1,12 @@
 /** @wordpress */
 import {__} from '@wordpress/i18n'
+
 import {
   BlockControls,
   MediaPlaceholder,
   MediaUpload,
 } from '@wordpress/block-editor'
+
 import {
   IconButton,
   Toolbar,
@@ -39,6 +41,7 @@ const Image = ({
 }) => {
   /**
    * Handle image selection.
+   *
    * @param {object} value
    */
   const onSelectImage = value =>

@@ -1,19 +1,38 @@
 <?php
 
 return [
-    /**
-     * Plugin namespace
-     */
+
+    /*
+    |--------------------------------------------------------------------------
+    | Plugin namespace
+    |--------------------------------------------------------------------------
+    |
+    | The PHP namespace utilized bythe plugin.
+    |
+    */
+
     'namespace' => '{{pascalcase namespace}}',
 
-    /**
-     * Plugin base URL
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Plugin url
+    |--------------------------------------------------------------------------
+    |
+    | The base URL of the plugin root.
+    |
+    */
+
     'url' => plugins_url('', __DIR__),
 
-    /**
-     * Plugin filesystem
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Plugin filesystem
+    |--------------------------------------------------------------------------
+    |
+    | Important filesystem locations for the plugin.
+    |
+    */
+
     'filesystem' => [
         'base' => plugin_dir_path(__DIR__),
         'dist' => 'dist',
@@ -23,4 +42,5 @@ return [
         'storage' => 'storage',
         'cache' => 'storage/cache',
     ],
+
 ];

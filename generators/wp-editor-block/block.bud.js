@@ -1,6 +1,8 @@
-// prettier-ignore
+/**
+ * WP Editor: Block
+ */
 module.exports = {
-  name: 'block',
+  name: 'wp-editor-block',
   description: 'Generate a new block',
   prompts: [
     {

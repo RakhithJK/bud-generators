@@ -52,6 +52,31 @@ module.exports = {
     },
     {
       task: 'compile',
+      src: 'bud.config.js',
+      dest: 'bud.config.js',
+    },
+    {
+      task: 'compile',
+      src: 'src/blocks/editor.css',
+      dest: 'src/blocks/editor.css',
+    },
+    {
+      task: 'compile',
+      src: 'src/blocks/editor.js',
+      dest: 'src/blocks/editor.js',
+    },
+    {
+      task: 'compile',
+      src: 'src/blocks/public.css',
+      dest: 'src/blocks/public.css',
+    },
+    {
+      task: 'compile',
+      src: 'src/blocks/public.js',
+      dest: 'src/blocks/public.js',
+    },
+    {
+      task: 'compile',
       src: 'config/plugin.php.hbs',
       dest: 'config/plugin.php',
     },
@@ -84,6 +109,12 @@ module.exports = {
       task: 'compile',
       src: 'app/Asset/Registration.php.hbs',
       dest: 'app/Asset/Registration.php',
+    },
+    {
+      task: 'addDependencies',
+      repo: 'npm',
+      dev: true,
+      pkgs: ['@roots/budpack'],
     },
     {
       task: 'install',

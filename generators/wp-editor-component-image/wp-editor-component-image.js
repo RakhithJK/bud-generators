@@ -2,7 +2,7 @@
  * Generator: Image Component
  */
 module.exports = {
-  name: 'component-image',
+  name: 'wp-editor-component-image',
   description: 'Generate Image Component',
   tasks: [
     {

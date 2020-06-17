@@ -4,8 +4,8 @@
 
 // prettier-ignore
 module.exports = {
-  name: 'editor-plugin',
-  description: 'Generate a new editor JS plugin',
+  name: 'wp-editor-extension',
+  description: 'Generate a new WordPress editor plugin',
   prompts: [
     {
       type: 'input',

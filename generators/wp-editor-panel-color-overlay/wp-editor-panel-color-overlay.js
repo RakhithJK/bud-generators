@@ -2,7 +2,7 @@
  * Inspector Panel: Color Overlay
  */
 module.exports = {
-  name: 'component-panel-color-overlay',
+  name: 'wp-editor-panel-color-overlay',
   description: 'Inspector Panel: Color Overlay',
   tasks: [
     {

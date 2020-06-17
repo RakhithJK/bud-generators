@@ -1,6 +1,29 @@
 <?php
 
 return [
-  'namespace' => '{{lowercase (dashcase namespace)}}',
-  'renderer' => 'blade',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Block namespace
+    |--------------------------------------------------------------------------
+    |
+    | The client namespace utilized by the plugin. By default this is the
+    | PHP namespace in all lowercase, with spaces replaced by dashes.
+    |
+    */
+
+    'namespace' => '{{lowercase (dashcase namespace)}}',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Block rendering engine
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default renderer to be utilized when rendering
+    | blocks with PHP.
+    |
+    */
+
+    'renderer' => 'blade',
+
 ];
