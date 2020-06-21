@@ -42,7 +42,7 @@ module.exports = {
     },
     {
       task: 'compile',
-      src: 'bud.config.js',
+      src: 'bud.config.js.hbs',
       dest: 'bud.config.js',
     },
     {
