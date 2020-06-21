@@ -12,6 +12,8 @@
 
 namespace {{pascalcase namespace}};
 
+use Roots\Bud\Bud;
+
 /**
  * {{lowercase (dashcase namespace)}}/{{lowercase (dashcase name)}}
  */
@@ -41,8 +43,9 @@ namespace {{pascalcase namespace}};
      */
     public function __invoke()
     {
-        $this->bud = boot($this->dir);
-        $this->bud->make('plugin.init')();
+        $this->bud = new Bud($this->dir);
+
+        add_action('init', $this->bud);
     }
 
     /**

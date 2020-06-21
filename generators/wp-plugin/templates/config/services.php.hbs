@@ -1,0 +1,60 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Autoloaded services
+    |--------------------------------------------------------------------------
+    |
+    | These services are automatically instantiated and made available throughout
+    | your plugin.
+    |
+    | Feel free to add your own services to this array to grant expanded
+    | functionality to your plugin.
+    |
+    */
+
+    'autoload' => [
+        'plugin.register' => {{pascalcase namespace}}\Services\Register::class,
+        'plugin.main' => {{pascalcase namespace}}\Services\Main::class,
+        'collection' => Roots\Bud\Collection\Collection::class,
+        'manifest' => Roots\Bud\Manifest\Manifest::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Plugin services
+    |--------------------------------------------------------------------------
+    |
+    | Each request for the services in this array will return a new instance
+    | of that object.
+    |
+    | Feel free to add your own services to this array to grant expanded
+    | functionality to your plugin.
+    |
+    */
+
+    'services' => [
+        'plugin.activate' => join('/', [plugin_dir_path(__DIR__), 'app/Plugin/Activate.php']),
+        'plugin.deactivate' => join('/', [plugin_dir_path(__DIR__), 'app/Plugin/Deactivate.php']),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Service hooks
+    |--------------------------------------------------------------------------
+    |
+    | Map WordPress hooks to service provider methods.
+    |
+    */
+
+    'service_hooks' => [
+        'plugins_loaded' => 'pluginsLoaded',
+        'after_setup_theme' => 'afterSetupTheme',
+        'wp_enqueue_scripts' => 'enqueueScripts',
+        'enqueue_block_editor_assets' => 'enqueueBlockEditorAssets',
+        'enqueue_block_assets', 'enqueueBlockAssets',
+    ],
+
+];

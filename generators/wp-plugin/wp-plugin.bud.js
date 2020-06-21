@@ -77,18 +77,13 @@ module.exports = {
     },
     {
       task: 'compile',
+      src: 'config/services.php.hbs',
+      dest: 'config/services.php',
+    },
+    {
+      task: 'compile',
       src: 'config/plugin.php.hbs',
       dest: 'config/plugin.php',
-    },
-    {
-      task: 'compile',
-      src: 'config/block.php.hbs',
-      dest: 'config/block.php',
-    },
-    {
-      task: 'compile',
-      src: 'config/bindings.php.hbs',
-      dest: 'config/bindings.php',
     },
     {
       task: 'compile',
@@ -102,13 +97,13 @@ module.exports = {
     },
     {
       task: 'compile',
-      src: 'app/Plugin/Main.php.hbs',
-      dest: 'app/Plugin/Main.php',
+      src: 'app/Services/Main.php.hbs',
+      dest: 'app/Services/Main.php',
     },
     {
       task: 'compile',
-      src: 'app/Asset/Registration.php.hbs',
-      dest: 'app/Asset/Registration.php',
+      src: 'app/Services/Register.php.hbs',
+      dest: 'app/Services/Register.php',
     },
     {
       task: 'addDependencies',

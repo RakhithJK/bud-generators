@@ -4,21 +4,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Plugin namespace
-    |--------------------------------------------------------------------------
-    |
-    | The PHP namespace utilized bythe plugin.
-    |
-    */
-
-    'namespace' => '{{pascalcase namespace}}',
-
-    /*
-    |--------------------------------------------------------------------------
     | Plugin url
     |--------------------------------------------------------------------------
     |
-    | The base URL of the plugin root.
+    | The base URL of the plugin.
     |
     */
 
@@ -26,21 +15,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Plugin filesystem
+    | Plugin directories
     |--------------------------------------------------------------------------
     |
-    | Important filesystem locations for the plugin.
+    | Important directories for the plugin.
     |
     */
 
-    'filesystem' => [
-        'base' => plugin_dir_path(__DIR__),
-        'dist' => 'dist',
+    'directories' => [
         'src' => 'src',
-        'blocks' => 'src/blocks',
-        'plugins' => 'src/plugins',
-        'storage' => 'storage',
-        'cache' => 'storage/cache',
+        'dist' => 'dist',
+        'config' => 'config',
+        'languages' => 'resources/languages',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Plugin files
+    |--------------------------------------------------------------------------
+    |
+    | Important files for the plugin.
+    |
+    */
+
+    'files' => [
+        'manifest' => 'dist/manifest.json',
     ],
 
 ];

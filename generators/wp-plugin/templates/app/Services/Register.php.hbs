@@ -1,0 +1,62 @@
+<?php
+
+namespace {{pascalcase namespace}}\Services;
+
+use Roots\Bud\Services\ServiceProvider;
+use Roots\Bud\Container\Contracts\ContainerInterface;
+
+/**
+ * Register client assets
+ *
+ * @see Enqueueing Editor Assets <https://git.io/JvPHy>
+ * @see Dependency Extraction Webpack Plugin <https://git.io/Jv1ll>
+ */
+class Register extends ServiceProvider
+{
+    /** @var ContainerInterface */
+    public $bud;
+
+    /**
+      * Boot plugin service.
+      *
+      * @return void
+      */
+    public function boot(): void
+    {
+        $this->registerAssets();
+    }
+
+    /**
+     * Register assets on init.
+     *
+     * @return void
+     */
+    public function registerAssets(): void
+    {
+        wp_register_script(
+            'editor/script',
+            $this->bud['manifest']->get('editor.js'),
+            $this->json($this->bud['manifest']->get('editor.json'))->dependencies,
+            null,
+        );
+
+        wp_register_style(
+            'editor/style',
+            $this->bud['manifest']->get('editor.css'),
+            [],
+            null,
+        );
+    }
+
+    /**
+     * On wp_enqueue_scripts.
+     *
+     * @return void
+     */
+    public function enqueueScripts(): void
+    {
+        wp_enqueue_script('editor/script');
+
+        wp_enqueue_style('editor/style');
+    }
+}
