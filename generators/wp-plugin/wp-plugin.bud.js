@@ -3,16 +3,6 @@ module.exports = {
   description: 'Generate a new plugin',
   tasks: [
     {
-      task: 'copy',
-      src: 'storage/.gitignore',
-      dest: 'storage/.gitignore',
-    },
-    {
-      task: 'copy',
-      src: 'storage/cache/.gitignore',
-      dest: 'storage/cache/.gitignore',
-    },
-    {
       task: 'compile',
       src: 'README.md.hbs',
       dest: 'README.md',
