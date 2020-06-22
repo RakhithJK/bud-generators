@@ -36,6 +36,7 @@ return [
     */
 
     'services' => [
+        'asset' => Roots\Bud\Asset\Asset::class,
         'plugin.activate' => join('/', [plugin_dir_path(__DIR__), 'app/Plugin/Activate.php']),
         'plugin.deactivate' => join('/', [plugin_dir_path(__DIR__), 'app/Plugin/Deactivate.php']),
     ],

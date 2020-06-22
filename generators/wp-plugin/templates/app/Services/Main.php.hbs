@@ -20,7 +20,8 @@ class Main extends ServiceProvider
     {
         register_activation_hook(__FILE__, $this->bud['plugin.activate']);
         register_deactivation_hook(__FILE__, $this->bud['plugin.deactivate']);
-        load_plugin_textdomain('acme-co', false, $this->bud['directories']->languages);
+
+        load_plugin_textdomain('{{lowercase (dashcase namespace)}}', false, $this->bud['directories']->languages);
      }
 }
 

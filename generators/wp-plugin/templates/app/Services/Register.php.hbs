@@ -32,14 +32,14 @@ class Register extends ServiceProvider
     {
         wp_register_script(
             'editor/script',
-            $this->bud['manifest']->get('editor.js'),
-            $this->json($this->bud['manifest']->get('editor.json'))->dependencies,
+            $this->bud['manifest']->asset('editor.js')->url(),
+            $this->bud['manifest']->asset('editor.json')->dependencies(),
             null,
         );
 
         wp_register_style(
             'editor/style',
-            $this->bud['manifest']->get('editor.css'),
+            $this->bud['manifest']->asset('editor.css')->url(),
             [],
             null,
         );
@@ -53,7 +53,6 @@ class Register extends ServiceProvider
     public function enqueueScripts(): void
     {
         wp_enqueue_script('editor/script');
-
         wp_enqueue_style('editor/style');
     }
 }
