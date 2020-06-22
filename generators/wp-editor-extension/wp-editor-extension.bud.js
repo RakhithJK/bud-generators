@@ -10,8 +10,8 @@ module.exports = {
     {
       type: 'input',
       name: 'pluginName',
-      message: 'Name',
-      initial: 'acme-plugin',
+      message: 'Plugin name',
+      initial: 'ACME Co. Plugin',
       required: true,
     },
   ],

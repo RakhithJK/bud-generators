@@ -8,16 +8,18 @@
   "engines": {
     "node": ">=12"
   },
-  "keywords": [
-    "bud-core-generators"
-  ],
-  "files": [
-    "generators"
-  ],
   "licenses": [
     {
       "type": "MIT",
       "url": "http://opensource.org/licenses/MIT"
     }
+  ],
+  "keywords": [
+    "bud-core-generators",
+    "bud-core-presets"
+  ],
+  "files": [
+    "generators",
+    "presets"
   ]
 }
