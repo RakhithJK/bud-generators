@@ -30,19 +30,34 @@ class Register extends ServiceProvider
      */
     public function registerAssets(): void
     {
-        wp_register_script(
-            'editor/script',
-            $this->bud['manifest']->asset('editor.js')->url(),
-            $this->bud['manifest']->asset('editor.json')->dependencies(),
-            null,
-        );
+        $this->bud['collection']::make(['editor','public'])->each(
+            function ($asset) {
+                wp_register_script(
+                    "{$asset}/script",
+                    $this->bud['manifest']->asset("{$asset}.js")->url(),
+                    $this->bud['manifest']->asset("{$asset}.json")->dependencies(),
+                    null,
+                );
 
-        wp_register_style(
-            'editor/style',
-            $this->bud['manifest']->asset('editor.css')->url(),
-            [],
-            null,
+                wp_register_style(
+                    "{$asset}/style",
+                    $this->bud['manifest']->asset("{$asset}.css")->url(),
+                    [],
+                    null,
+                );
+            }
         );
+    }
+
+    /**
+     * On admin_init.
+     *
+     * @return void
+     */
+    public function adminInit(): void
+    {
+        wp_enqueue_script('editor/script');
+        wp_enqueue_style('editor/style');
     }
 
     /**
@@ -52,7 +67,7 @@ class Register extends ServiceProvider
      */
     public function enqueueScripts(): void
     {
-        wp_enqueue_script('editor/script');
-        wp_enqueue_style('editor/style');
+        wp_enqueue_script('public/script');
+        wp_enqueue_style('public/style');
     }
 }

@@ -1,7 +1,26 @@
 module.exports = {
   name: 'wp-plugin',
   description: 'Generate a new plugin',
+  prompts: [
+    {
+      type: 'input',
+      name: 'proxyHost',
+      message: 'Development URL',
+      initial: 'acme.test',
+      required: true,
+    },
+  ],
   tasks: [
+    {
+      task: 'ensureDirs',
+      dirs: [
+        'src/blocks',
+        'src/components',
+        'src/plugins',
+        'resources/assets',
+        'resources/languages',
+      ],
+    },
     {
       task: 'compile',
       src: 'README.md.hbs',
@@ -46,24 +65,34 @@ module.exports = {
       dest: 'bud.config.js',
     },
     {
-      task: 'compile',
-      src: 'src/blocks/editor.css',
-      dest: 'src/blocks/editor.css',
+      task: 'copy',
+      src: 'babel.config.js.hbs',
+      dest: 'babel.config.js',
+    },
+    {
+      task: 'copy',
+      src: 'postcss.config.js.hbs',
+      dest: 'postcss.config.js',
+    },
+    {
+      task: 'copy',
+      src: '.eslintrc.js.hbs',
+      dest: '.eslintrc.js',
+    },
+    {
+      task: 'copy',
+      src: '.eslintignore',
+      dest: '.eslintignore',
     },
     {
       task: 'compile',
-      src: 'src/blocks/editor.js',
-      dest: 'src/blocks/editor.js',
+      src: 'src/entry-editor.js.hbs',
+      dest: 'src/entry-editor.js',
     },
     {
       task: 'compile',
-      src: 'src/blocks/public.css',
-      dest: 'src/blocks/public.css',
-    },
-    {
-      task: 'compile',
-      src: 'src/blocks/public.js',
-      dest: 'src/blocks/public.js',
+      src: 'src/entry-public.js.hbs',
+      dest: 'src/entry-public.js',
     },
     {
       task: 'compile',
@@ -96,10 +125,27 @@ module.exports = {
       dest: 'app/Services/Register.php',
     },
     {
+      task: 'json',
+      file: 'package.json',
+      merge: package => ({
+        ...package,
+        scripts: {
+          ...package.scripts,
+          'bud:dev': 'budpack --env development',
+          'bud:build': 'budpack --env production',
+        },
+      }),
+    },
+    {
       task: 'addDependencies',
       repo: 'npm',
       dev: true,
       pkgs: ['@roots/budpack'],
+    },
+    {
+      task: 'command',
+      msg: 'Configuring project dependencies. This might take a hot second.',
+      run: 'yarn budpack --preflight',
     },
     {
       task: 'install',

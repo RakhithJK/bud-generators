@@ -13,6 +13,14 @@ const bud = require('@roots/budpack');
 bud.projectPath(__dirname)
   .srcPath('src')
   .distPath('dist')
+  .alias({
+    '@blocks': bud.src('blocks'),
+    '@components': bud.src('components'),
+    '@plugins': bud.src('plugins'),
+  })
+  .browserSync({
+    proxy: '{{ proxyHost }}',
+  })
 
 /*
  |--------------------------------------------------------------------------
@@ -25,8 +33,7 @@ bud.projectPath(__dirname)
  */
 
 bud.entry('editor', [
-  bud.src('blocks/editor.js'),
-  bud.src('blocks/editor.css'),
+  bud.src('entry-editor.js'),
 ])
 
 /*
@@ -40,8 +47,7 @@ bud.entry('editor', [
  */
 
 bud.entry('public', [
-  bud.src('blocks/public.js'),
-  bud.src('blocks/public.css'),
+  bud.src('entry-public.js'),
 ])
 
 module.exports = bud

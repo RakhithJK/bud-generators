@@ -44,7 +44,6 @@ use Roots\Bud\Bud;
     public function __invoke()
     {
         $this->bud = new Bud($this->dir);
-
         add_action('init', $this->bud);
     }
 
