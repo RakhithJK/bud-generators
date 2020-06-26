@@ -143,11 +143,6 @@ module.exports = {
       pkgs: ['@roots/budpack'],
     },
     {
-      task: 'command',
-      msg: 'Configuring project dependencies. This might take a hot second.',
-      run: 'yarn budpack --preflight',
-    },
-    {
       task: 'install',
       repo: 'packagist',
     },
