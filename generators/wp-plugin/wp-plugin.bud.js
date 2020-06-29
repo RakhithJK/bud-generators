@@ -131,8 +131,8 @@ module.exports = {
         ...package,
         scripts: {
           ...package.scripts,
-          'bud:dev': 'budpack --env development',
-          'bud:build': 'budpack --env production',
+          'dev': 'budpack --env development',
+          'build': 'budpack --env production',
         },
       }),
     },

@@ -2,7 +2,6 @@
  * bud generate editor-plugin
  */
 
-// prettier-ignore
 module.exports = {
   name: 'wp-editor-extension',
   description: 'Generate a new WordPress editor plugin',
