@@ -1,53 +1,55 @@
-const bud = require('@roots/budpack');
-
-/*
- |--------------------------------------------------------------------------
- | Project configuration
- |--------------------------------------------------------------------------
- |
- | Add assets you wish to enqueue in the context of the WordPress admin
- | and editor interfaces.
- |
+/**
+ * This object contains a ton of tools to set up the build
+ * for your application.
  */
+const bud = require('@roots/budpack')
 
-bud.projectPath(__dirname)
+/**
+ * Set project asset paths.
+ */
+bud
   .srcPath('src')
   .distPath('dist')
-  .alias({
-    '@blocks': bud.src('blocks'),
-    '@components': bud.src('components'),
-  })
-  .browserSync({
-    enabled: true,
-    proxy: '{{ proxyHost }}',
-  })
 
-/*
- |--------------------------------------------------------------------------
- | Editor assets
- |--------------------------------------------------------------------------
- |
- | Add assets you to enqueue in the context of the WordPress admin
- | and editor interfaces.
- |
+/**
+ * Alias project directories.
  */
+bud.alias({
+  '@blocks': bud.src('blocks'),
+  '@components': bud.src('components'),
+})
 
-bud.entry('editor', [
-  bud.src('entry-editor.js'),
-])
-
-/*
- |--------------------------------------------------------------------------
- | Public assets
- |--------------------------------------------------------------------------
- |
- | Add assets to be enqueued on outward-facing site content in addition to
- | admin and editor interfaces.
- |
+/**
+ * Live reload configuration.
  */
+bud.sync({
+  proxy: 'http://bud-sandbox.valet',
+  port: 3010,
+})
 
-bud.entry('public', [
-  bud.src('entry-public.js'),
-])
+/**
+ * Produce asset bundles.
+ */
+bud
+  .bundle('editor', [
+    bud.src('entry-editor.js'),
+  ])
+  .bundle('public', [
+    bud.src('entry-public.js'),
+  ])
+  .dependencyManifest()
+  .inlineManifest()
+  .vendor()
+  .hash();
 
+/**
+ * Configure transpilers.
+ */
+bud
+  .babel(bud.preset('babel/preset-wp'))
+  .postCss(bud.preset('postcss'))
+
+/**
+ * Export finalize configuration.
+ */
 module.exports = bud
