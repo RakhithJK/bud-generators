@@ -1,6 +1,6 @@
 <?php
 
-namespace AcmeCo\Services;
+namespace {{pascalcase namespace}}\Services;
 
 use Roots\Bud\Services\ServiceProvider;
 use Roots\Bud\Container\Contracts\ContainerInterface;
@@ -53,7 +53,7 @@ class Register extends ServiceProvider
             : null;
 
         /**
-         * Inline manifest dependencies.
+         * Dependencies.
          *
          * @note If both `inlineManifest` and `dependencyManifest` are in use, the runtime manifest
          *       will have the dependencies asset manifest attached to it rather than the entrypoint.
@@ -82,7 +82,7 @@ class Register extends ServiceProvider
          */
         if ($runtime) {
             wp_register_script(
-                "{$asset}/script/runtime",
+                "{{lowercase namespace}}/{$asset}/script/runtime",
                 $runtime,
                 $runtimeDependencies,
                 null
@@ -94,7 +94,7 @@ class Register extends ServiceProvider
          */
         if ($script) {
             wp_register_script(
-                "{$asset}/script",
+                "{{lowercase namespace}}/{$asset}/script",
                 $script,
                 $scriptDependencies,
                 null
@@ -106,7 +106,7 @@ class Register extends ServiceProvider
          */
         if ($style) {
             wp_register_style(
-                "{$asset}/style",
+                "{{lowercase namespace}}/{$asset}/style",
                 $style,
                 [],
                 null
@@ -121,9 +121,9 @@ class Register extends ServiceProvider
      */
     public function adminInit(): void
     {
-        wp_enqueue_script('editor/script/runtime');
-        wp_enqueue_script('editor/script');
-        wp_enqueue_style('editor/style');
+        wp_enqueue_script('{{lowercase namespace}}/editor/script/runtime');
+        wp_enqueue_script('{{lowercase namespace}}/editor/script');
+        wp_enqueue_style('{{lowercase namespace}}/editor/style');
     }
 
     /**
@@ -133,8 +133,8 @@ class Register extends ServiceProvider
      */
     public function enqueueScripts(): void
     {
-        wp_enqueue_script('public/script/runtime');
-        wp_enqueue_script('public/script');
-        wp_enqueue_style('public/style');
+        wp_enqueue_script('{{lowercase namespace}}/public/script/runtime');
+        wp_enqueue_script('{{lowercase namespace}}/public/script');
+        wp_enqueue_style('{{lowercase namespace}}/public/style');
     }
 }
