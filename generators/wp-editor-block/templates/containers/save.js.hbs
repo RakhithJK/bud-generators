@@ -15,7 +15,6 @@ import PropTypes from 'prop-types'
   * into the final markup, which is then serialized by the block editor into `post_content`.
   *
   * @see https://git.io/JfZJ9
-  *
   * @return {WPElement} Element to render.
   */
 const save = ({attributes}) => {
@@ -25,7 +24,7 @@ const save = ({attributes}) => {
   {{/has}}
 
   return (
-    <>
+    <div className={className}>
       {{#has 'components' 'RichText'}}
         {text && (
           <RichText.Content
@@ -39,7 +38,7 @@ const save = ({attributes}) => {
       {{#has 'components' 'InnerBlocks'}}
         <InnerBlocks.Content />
       {{/has}}
-    </>
+    </div>
   )
 }
 
