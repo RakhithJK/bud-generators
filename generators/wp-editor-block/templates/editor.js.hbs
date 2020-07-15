@@ -35,12 +35,14 @@ registerBlockType('{{namespace}}/{{name}}', {
    */
   category: '{{category}}',
 
+  {{#if parent}}
   /**
     * Setting `parent` lets a block require that it is only available when
     * nested within the specified blocks.
     * @type {string}
     */
-  {{#if parent}}parent: '{{parent}}'{{/if}},
+  parent: '{{parent}}',
+  {{/if}}
 
   {{#if keywords.[0]}}
   /**
