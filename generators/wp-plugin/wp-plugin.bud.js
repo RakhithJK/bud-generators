@@ -66,16 +66,6 @@ module.exports = {
     },
     {
       task: 'copy',
-      src: 'babel.config.js.hbs',
-      dest: 'babel.config.js',
-    },
-    {
-      task: 'copy',
-      src: 'postcss.config.js.hbs',
-      dest: 'postcss.config.js',
-    },
-    {
-      task: 'copy',
       src: '.eslintrc.js.hbs',
       dest: '.eslintrc.js',
     },

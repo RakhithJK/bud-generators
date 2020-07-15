@@ -19,24 +19,11 @@ import PropTypes from 'prop-types'
   * @prop   {PropTypes.string} className
   * @prop   {PropTypes.bool}   isSelected
   * @prop   {PropTypes.func}   setAttributes
-  * @return {WPElement}        Element to render.
+  * @return {PropTypes.ReactComponentLike} Element to render.
   */
 const edit = ({attributes, className, setAttributes}) => {
 {{#has 'components' 'RichText'}}
   const {text} = attributes
-{{/has}}
-
-{{#has 'components' 'RichText'}}
-  /**
-   * Generic attribute handler.
-   *
-   * @param  {string} attribute key
-   * @param  {mixed}  attribute value
-   * @return {void}
-   */
-  const setAttribute = (attr, value) => {
-    setAttributes({[attr]: value})
-  }
 {{/has}}
 
   /**
@@ -49,7 +36,7 @@ const edit = ({attributes, className, setAttributes}) => {
         placeholder={__('placeholder heading', '{{namespace}}')}
         tagName={'h2'}
         value={text || ''}
-        onChange={value => setAttribute('text', value)}
+        onChange={value => setAttributes({text: value})}
       />
     {{/has}}
 

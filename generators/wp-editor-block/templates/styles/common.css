@@ -4,8 +4,7 @@
 
 .wp-block-{{namespace}}-{{name}} {
   /**
-   * Styles includes in this block
-   * will be applied in the editor and
-   * in public app views.
+   * Styles includes in this block will be applied
+   * in both the editor and in public app views.
    */
 }
